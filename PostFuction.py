@@ -1,5 +1,5 @@
 from random import random
-
+import re
 import pandas as pd
 import datetime
 from datetime import time
@@ -12,28 +12,54 @@ from pynput.keyboard import Key, Controller
 
 def postOnLinkedIn(driver):
     keyboard = Controller()
+    #take all the Content avaiable from resources
     df = pd.read_csv('recourses/Content.csv')
     time.sleep(5)
-    # text_button = driver.find_element(By.XPATH,
-    #                                   "//button[contains(@class, 'artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary ember-view share-box-feed-entry__trigger')]")
-    # text_button.click()
-
 
     #click in media button
     text_button = driver.find_element(By.XPATH,
                                       "//button[contains(@class, 'artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry-toolbar__item')]")
     text_button.click()
     time.sleep(5)
+    #chose pic
     keyboard.type('D:\Test\est1.jpg')
-    time.sleep(5)
+    time.sleep(2)
+    # hit enter
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-    time.sleep(5)
+    time.sleep(2)
+    #click to next to paste content
     next = driver.find_element(By.XPATH, "//button[contains(@class, 'share-box-footer__primary-btn artdeco-button artdeco-button--2 artdeco-button--primary ember-view')]")
     next.click()
-    time.sleep(5)
+    time.sleep(2)
+
+    #converte object of tag to string
+    stringTag = str(df['Tag'][0])
+
+    #convert those into separeted string without comma
+    converted = stringTag.split(",")
+
+
+
+    #loop through name and put before name the '@' in oder to tag may be ???
+    #this will loop through all the tag
+
+    # --------------------------------------------------------------------------------------------------------------
+    #delay is malfuc
+    for value in range(len(converted)):
+        driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys('@' + converted[value])
+        time.sleep(5)
+        keyboard.press(Key.down)
+        time.sleep(2)
+        keyboard.press(Key.enter)
+        time.sleep(2)
+        keyboard.press(Key.space)
+    #--------------------------------------------------------------------------------------------------------------
+
+    keyboard.press(Key.enter)
     driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys(df['Content'][0])
-    time.sleep(random.randint(3, 9))
+    time.sleep(9)
+
     post_button = driver.find_element(By.XPATH,
                                       "//button[contains(@class, 'share-actions__primary-action artdeco-button artdeco-button--2 artdeco-button--primary ember-view')]")
     post_button.click()
