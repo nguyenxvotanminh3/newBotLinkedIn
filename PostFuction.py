@@ -29,7 +29,7 @@ def postOnLinkedIn(driver):
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
     time.sleep(5)
-    next = driver.find_element(By.ID, "ember196")
+    next = driver.find_element(By.XPATH, "//button[contains(@class, 'share-box-footer__primary-btn artdeco-button artdeco-button--2 artdeco-button--primary ember-view')]")
     next.click()
     time.sleep(5)
     driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys(df['Content'][0])
