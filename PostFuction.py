@@ -10,19 +10,23 @@ from selenium.webdriver.common.by import By
 from pynput.keyboard import Key, Controller
 
 
+
+
 def postOnLinkedIn(driver):
     keyboard = Controller()
     #take all the Content avaiable from resources
     df = pd.read_csv('recourses/Content.csv')
     time.sleep(5)
-
+    # the ui will chose which content row
+    i = 0
+    choose = df['Image'][i]
     #click in media button
     text_button = driver.find_element(By.XPATH,
                                       "//button[contains(@class, 'artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry-toolbar__item')]")
     text_button.click()
     time.sleep(5)
     #chose pic
-    keyboard.type('D:\Test\est1.jpg')
+    keyboard.type(choose)
     time.sleep(2)
     # hit enter
     keyboard.press(Key.enter)
