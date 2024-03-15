@@ -14,14 +14,14 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.login = tk.Button(self, text="Auto Login Linkedln", command=lambda: Login_Linkedin(driver) , )
+        self.login = tk.Button(self, text="Auto Login Linkedln", command=lambda: Login_Linkedin(driver) ,background="black" ,foreground="white" )
         self.login.pack(pady = 15)
 
-        self.login1 = tk.Button(self, text="Basic Login Linkedln", command=lambda: Login_Linkedin_1(driver))
+        self.login1 = tk.Button(self, text="Basic Login Linkedln", command=lambda: Login_Linkedin_1(driver) ,background="black" ,foreground="white" )
         self.login1.pack(pady = 15)
 
 
-        self.post = tk.Button(root2, text="Auto post LinkedIn", command=lambda: postOnLinkedIn(driver))
+        self.post = tk.Button(root2, text="Auto post LinkedIn", command=lambda: postOnLinkedIn(driver) ,background="black" ,foreground="white")
         self.post.pack()
 
 
@@ -31,8 +31,13 @@ class Application(tk.Frame):
             root2,
             width=10,
             justify="center",
+
         )
+
         iloc_start_entry.pack()
+
+
+
 
 
         self.quit = tk.Button(self, text="QUIT", command=root.destroy)
