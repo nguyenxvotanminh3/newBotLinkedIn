@@ -9,7 +9,7 @@ Chuẩn bị
 1.Một tấm ảnh đặt tên chữ tiếng anh, không bắt đầu bằng 't' , ví dụ : test ( lỗi ) , nên đặt theo pic1 , pic2, pic3
 2.Lưu ảnh vào máy, lấy đường dẫn chính xác đến ảnh. Ví dụ ảnh ở ổ D thư mục 'code' tên anh 'pic1' thì lấy dường đãn là 'D:\code\pic1.jpg'
 3.Vào thư mục recouses -> Content.csv paste link ảnh
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/1b171422-cb7d-4e5d-ad3b-f0ce3f4b2bee)
+ <img src="https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/1b171422-cb7d-4e5d-ad3b-f0ce3f4b2bee" alt="nguyenxvotanminh3" /> 
 Lưu ý nếu bạn dùng pycham làm ide thì sẽ dễ chỉnh sửa hơn
 -chọn vào kiểu dữ liệu data
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/6c74ff36-155b-41c1-b7cc-4d560733c976)
