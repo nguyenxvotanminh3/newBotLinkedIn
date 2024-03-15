@@ -4,7 +4,7 @@
 Download project về máy
 ``````
 Chuẩn bị 
-``````
+
 (Lưu ý trong thư mục Content.csv chỉ dùng row 0 vì set mặc định như thế, chưa chỉnh sửa để chọn row theo ý thích )
 1.Một tấm ảnh đặt tên chữ tiếng anh, không bắt đầu bằng 't' , ví dụ : test ( lỗi ) , nên đặt theo pic1 , pic2, pic3
 2.Lưu ảnh vào máy, lấy đường dẫn chính xác đến ảnh. Ví dụ ảnh ở ổ D thư mục 'code' tên anh 'pic1' thì lấy dường đãn là 'D:\code\pic1.jpg'
@@ -24,7 +24,6 @@ Lưu ý nếu bạn dùng pycham làm ide thì sẽ dễ chỉnh sửa hơn
 ****![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/b04dd191-e95b-4292-b4be-6032ed351954)
 *Lưu ý: dùng 1 tài khoản test mới , test chung 1 tài khoản dễ bị khóa, làm ơn đấy T_T
 
-``````
 
 # Chạy tools:
 ``````
