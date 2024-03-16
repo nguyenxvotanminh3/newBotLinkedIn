@@ -94,7 +94,7 @@ Hiện chưa có file .exe để chạy , nên test trong ide
 Basic login : tự lead đến trang đăng nhập, bạn chỉ cần tự đăng nhập
 Auto login : chuyển bạn đến trang đăng nhập, tự điền mật khẩu, 1 vài lúc nó tự enter vào luôn, không thì bạn bấm enter vào trang chính.
 5.Tắt cửa sổ đăng nhập cho gọn, sau đó chọn AutoPostLinkedIn , nó sẽ tự up ảnh, tag, và đăng content
-** Lưu ý : Quan trọng thì nhắc 3 lần , file Content.vsc chỉ láy được row 0 , làm ơn hãy paste đúng vào row đó vì mình mới để mặc định row đó để test thôi, Xin cảm ơn bạn đã tin dùng!
+ Xin cảm ơn bạn đã tin dùng!
 ``````
 
 # Thoát
