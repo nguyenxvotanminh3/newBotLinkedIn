@@ -58,11 +58,40 @@ Hiện chưa có file .exe để chạy , nên test trong ide
 3.Bấm chạy
 ``````
 ``````
-4.Nó sẽ hiện 2 cửa sổ , 1 cửa sổ để login, 1 cửa sổ để post( hiện đang phát triển post theo row nên chưa cần phải điền chữ )
+4.Nó sẽ hiện 2 cửa sổ , 1 cửa sổ để login, 1 cửa sổ để check row muốn post
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/d2024439-bb96-4286-af52-ec46dff8e3e0)
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/2f45877c-8dbd-4b0f-af04-91ede9b5c9c5)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/842dec32-bf21-44e9-a72d-67bc368df55a)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/d785e5e7-6844-4df2-a2ce-d9d82e70f7f6)
+
+
 ``````
+5. Nhập row muốn in trong file csv
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/2661539e-6e1f-4622-84dd-4629b3c433dd)
+
+``````
+6. chọn thử okay và xem row đã đúng chưa
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/88472b96-a285-4e52-8131-7839b05b0403)
+
+``````
+7. Nếu đúng rồi thì chọn Yes ( lưu ý chọn trước khi post )
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/febe7c44-37dd-43e7-a3b9-ba3f1bce4405)
+
+``````
+8. Để post thì bấm auto post thôi
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ee73cdc7-3060-4e76-9a3b-3fd0b1ef529c)
+
+
+
+
+``````
+
 Basic login : tự lead đến trang đăng nhập, bạn chỉ cần tự đăng nhập
 Auto login : chuyển bạn đến trang đăng nhập, tự điền mật khẩu, 1 vài lúc nó tự enter vào luôn, không thì bạn bấm enter vào trang chính.
 5.Tắt cửa sổ đăng nhập cho gọn, sau đó chọn AutoPostLinkedIn , nó sẽ tự up ảnh, tag, và đăng content
