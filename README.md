@@ -5,7 +5,6 @@ Download project về máy
 ``````
 Chuẩn bị 
 
-(Lưu ý trong thư mục Content.csv chỉ dùng row 0 vì set mặc định như thế, chưa chỉnh sửa để chọn row theo ý thích )
 ``````
 1.Một tấm ảnh đặt tên chữ tiếng anh, không bắt đầu bằng 't' , ví dụ : test ( lỗi ) , nên đặt theo pic1 , pic2, pic3
 ``````
