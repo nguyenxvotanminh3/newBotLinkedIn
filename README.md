@@ -1,4 +1,4 @@
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/f10d1a33-e994-4cc4-b8c1-c33b3c981d94)# Bot_Pthon_LinkeIN
+# Bot_Pthon_LinkeIN
 ``````
 Download project về máy
 ``````
