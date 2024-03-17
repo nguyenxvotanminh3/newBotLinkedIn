@@ -73,7 +73,6 @@ def Login_Linkedin(driver):
     """ Setup Argument Parameters """
     config = configparser.RawConfigParser()
     config.read(baseDir + 'recourses/Account.cfg')
-    api_key = config.get('API_KEYS', 'hunter')
     username = config.get('CREDS', 'linkedin_username')
     password = config.get('CREDS', 'linkedin_password')
     print(username, password)
@@ -92,8 +91,6 @@ def Login_Linkedin(driver):
     WebDriverWait(driver, 60).until(EC.title_contains('Feed'))
 
 def Login_Linkedin_1(driver):
-    baseDir = os.path.dirname(os.path.realpath(sys.argv[0])) + os.path.sep
-    """ Setup Argument Parameters """
     # head to Linkedin login page
     driver.get("https://www.linkedin.com/home")
     # wait for check robot
