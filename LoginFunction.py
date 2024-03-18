@@ -76,7 +76,7 @@ def Login_Linkedin(driver):
     username = config.get('CREDS', 'linkedin_username')
     password = config.get('CREDS', 'linkedin_password')
     print(username, password)
-    # head to Linkedin login page
+    # head to  login page
     driver.get("https://www.linkedin.com/home")
     time.sleep(2)
     # find username/email field and send the username itself to the input field
