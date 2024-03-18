@@ -17,12 +17,14 @@ Chuẩn bị
 ``````
 4. paste vào cột Image
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/840f8ee5-458d-4b8d-bf70-32a4ef0d9287)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/108c974c-eaba-4bc3-837d-a5e9e90614dd)
+
 
 ``````
-5.Nếu bạn muốn chỉnh sửa tag cũng được, cú pháp viết tên tag như sau :  tên,tên,tên,tên ( cứ viết tên lên tên kế đó là phẩy, đừng để khoảng cách vì mình chưa test nếu có dấu cách thì sao)
+5.Nếu bạn muốn chỉnh sửa tag cũng được, cú pháp viết tên tag như sau :  tên,tên,tên,tên 
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/d78f18ea-045d-422e-b90f-f553752b017b)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/7b4bc6fc-11a1-4baa-8855-89c28a0f8b0e)
+
 
 ``````
 6.Nếu muốn tự động điền tên đăng nhập và mật khẩu thì vào  recouses -> Account.cfg
@@ -38,14 +40,15 @@ Chuẩn bị
 
 # Chạy tools:
 
-Hiện chưa có file .exe để chạy , nên test trong ide
-``````
-1. Vào thư mục dist -> LinkedInToolUI.exe
-``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/63369eb0-2e25-47ce-9067-80bddce9a184)
 
 ``````
-2. Click vào LinkedInToolUI.exe
+1. Vào thư mục dist -> NewLkUi.exe
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/0caee351-a081-4368-953a-b47ecaebba8b)
+
+
+``````
+2. Click vào NewLkUi.exe
 
 ``````
 
@@ -53,10 +56,9 @@ Hiện chưa có file .exe để chạy , nên test trong ide
 3.Chờ 1 tí tí 
 ``````
 ``````
-4.Nó sẽ hiện 2 cửa sổ , 1 cửa sổ để autologin + post , 1 cửa sổ để check row muốn post
+4.Nó sẽ hiện cửa sổ giao diện
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/842dec32-bf21-44e9-a72d-67bc368df55a)
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/d785e5e7-6844-4df2-a2ce-d9d82e70f7f6)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/3589dd5e-86e9-4c4a-8da3-a69f0922478a)
 
 ``````
 5.Bấm auto login để tự động đăng nhập ( Nếu nó tự điền mật khẩu nhưng không chuyển sang trang chủ thì bấm log in bằng tay ) 
@@ -68,22 +70,34 @@ Hiện chưa có file .exe để chạy , nên test trong ide
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/2661539e-6e1f-4622-84dd-4629b3c433dd)
 
 ``````
-7. chọn thử okay và xem row đã đúng chưa
+7. Điền entryROw ( bắt đầu post từ đây ) và endRow ( Kết thúc ở đây )
 
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/88472b96-a285-4e52-8131-7839b05b0403)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/f0f24293-b216-4981-acaf-94b1301a86c2)
+
 
 ``````
-8. Nếu đúng rồi thì chọn Yes ( lưu ý chọn trước khi post )
+8. Kiểm tra trên cửa sổ xem đúng không, nếu không đúng thì cứ nhập lại rồi bấm kiểm tra tiếp
 
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/febe7c44-37dd-43e7-a3b9-ba3f1bce4405)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ad6283c1-1422-4479-8b16-c47194adf955)
+
 
 ``````
-9. Để post thì bấm auto post thôi
+9. Bấm passvariable
 
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ee73cdc7-3060-4e76-9a3b-3fd0b1ef529c)
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/67a69aad-e021-463c-aad3-51d29c453f1b)
+
+
+``````
+
+9. Bấm AutoPost
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/389668fd-ca6c-401b-91ba-1d178b5df1cd)
+
+
 
 ``````
 Basic login : tự lead đến trang đăng nhập, bạn chỉ cần tự đăng nhập
