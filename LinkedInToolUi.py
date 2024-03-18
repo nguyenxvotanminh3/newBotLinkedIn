@@ -48,22 +48,29 @@ class Application(tk.Frame):
         #test
         # can set post but dont recive getRow
 
-        self.post1 = tk.Button(root, text="Yes", command=lambda:reciveFromUi(int(getRow)),
+        self.post1 = tk.Button(root, text="Pass Variable", command=lambda:reciveFromUi(int(getRowStart), int(getRowEnd)),
                               background="black", foreground="white", pady=30)
         self.post1.pack()
 
 
 
-        win = Tk()
-        def display_text():
-            global getRow
-            getRow = entry.get()
-            label.configure(text="Test your option , you want to print Row : " + getRow)
 
-        label = Label(win, text="", font=("Courier 22 bold"))
+        def display_text1():
+            global getRowStart
+            getRowStart = entry.get()
+
+            label.configure(text="Start Row : " + getRowStart)
+
+        def display_text2():
+            global getRowEnd
+            getRowEnd = entry1.get()
+
+            label.configure(text="End Row : " + getRowEnd)
+
+        label = Label(root, text="", font=("Courier 22 bold"))
         label.pack()
 
-        tk.Button(win, text="Okay", width=20, command=display_text).pack(pady=20)
+        tk.Button(root, text="Start Row", width=20, command=display_text1).pack(pady=20)
 
         entry = tk.Entry(
             root,
@@ -72,6 +79,16 @@ class Application(tk.Frame):
         )
         entry.focus_set()
         entry.pack()
+
+        tk.Button(root, text="End Row", width=20, command=display_text2).pack(pady=20)
+
+        entry1 = tk.Entry(
+            root,
+            width=10,
+            justify="center",
+        )
+
+        entry1.pack()
 
 
 
