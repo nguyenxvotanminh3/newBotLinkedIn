@@ -86,7 +86,6 @@ def Login_Linkedin(driver):
     time.sleep(3)
     # click login button
     pyautogui.press('enter')
-
     # wait for check robot
     WebDriverWait(driver, 60).until(EC.title_contains('Feed'))
 

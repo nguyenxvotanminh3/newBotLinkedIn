@@ -1,4 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
+
+
 a = Analysis(
     ['LinkedInToolUI.py'],
     pathex=[],
