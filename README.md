@@ -65,26 +65,21 @@ Chuẩn bị
 ``````
 
 ``````
-6. Nhập row muốn in trong file csv
-``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/2661539e-6e1f-4622-84dd-4629b3c433dd)
-
-``````
-7. Điền entryROw ( bắt đầu post từ đây ) và endRow ( Kết thúc ở đây )
+6. Điền entryROw ( bắt đầu post từ đây ) và endRow ( Kết thúc ở đây )
 
 ``````
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/f0f24293-b216-4981-acaf-94b1301a86c2)
 
 
 ``````
-8. Kiểm tra trên cửa sổ xem đúng không, nếu không đúng thì cứ nhập lại rồi bấm kiểm tra tiếp
+7. Kiểm tra trên cửa sổ xem đúng không, nếu không đúng thì cứ nhập lại rồi bấm kiểm tra tiếp
 
 ``````
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ad6283c1-1422-4479-8b16-c47194adf955)
 
 
 ``````
-9. Bấm passvariable
+8. Bấm passvariable
 
 ``````
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/67a69aad-e021-463c-aad3-51d29c453f1b)
