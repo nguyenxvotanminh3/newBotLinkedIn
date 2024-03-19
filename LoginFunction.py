@@ -83,10 +83,12 @@ def Login_Linkedin(driver):
     driver.find_element(By.ID, "session_key").send_keys(username)
     # find password input field and insert password as well
     driver.find_element(By.ID, "session_password").send_keys(password)
-    time.sleep(3)
+    time.sleep(0.5)
     # click login button
-    pyautogui.press('enter')
+    text_button = driver.find_element(By.XPATH,
+                                      "/html/body/main/section[1]/div/div/form/div[2]/button")
     # wait for check robot
+    text_button.click()
     WebDriverWait(driver, 60).until(EC.title_contains('Feed'))
 
 def Login_Linkedin_1(driver):
