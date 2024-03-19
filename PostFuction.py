@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import time
+from datetime import time, datetime
 import time as time
 from selenium.webdriver.common.by import By
 from pynput.keyboard import Key, Controller
@@ -8,8 +8,6 @@ from pynput.keyboard import Key, Controller
 
 def postOnLinkedIn(driver):
     keyboard = Controller()
-
-
 
     #maybe O(n*n) lmao
     #loop from start to end

@@ -9,14 +9,15 @@ from LoginFunction import Login_Linkedin,Login_Linkedin_1
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
 from PostFuction import postOnLinkedIn,reciveFromUi
-
+from AutoPostFuction import autoPostFuction
 
 class App(customtkinter.CTk):
 
 
     def __init__(self):
         super().__init__()
-
+        global stateOfTimer
+        global stateOfAutoPost
 
         # configure window
         self.title("LinkedIn Tool")
@@ -37,10 +38,24 @@ class App(customtkinter.CTk):
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=10)
         self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: Login_Linkedin_1(driver),text="Basic Login")
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
-        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: postOnLinkedIn(driver),text="Auto Post")
+
+
+
+        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: autoPostFuction(driver,alarmUi=dialog1)
+                                                        ,text="Timer Post" )
         self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
+
+        self.sidebar_button_5 = customtkinter.CTkButton(self.sidebar_frame,
+                                                        command=lambda: postOnLinkedIn(driver),
+                                                        text="Auto Post" )
+        self.sidebar_button_5.grid(row=4, column=0, padx=20, pady=10)
+
+
+
+
         self.sidebar_button_4 = customtkinter.CTkButton(self.sidebar_frame, command=lambda:reciveFromUi(int(getRowStart), int(getRowEnd)),text="PassVariable")
-        self.sidebar_button_4.grid(row=4, column=0, padx=20, pady=10)
+        self.sidebar_button_4.grid(row=5, column=0, padx=20, pady=10)
+
 
 
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
@@ -74,44 +89,49 @@ class App(customtkinter.CTk):
 
         # create tabview
         self.tabview = customtkinter.CTkTabview(self, width=400)
-        # self.tabview.grid(row=0, column=2, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.tabview.add("CTkTabview")
+        self.tabview.grid(row=0, column=2, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        self.tabview.add("Set Time")
         # self.tabview.add("Tab 2")
         # self.tabview.add("Tab 3")
         # configure grid of individual tabs
-        # self.tabview.tab("CTkTabview").grid_columnconfigure(0, weight=1)
+        self.tabview.tab("Set Time").grid_columnconfigure(0, weight=1)
         # self.tabview.tab("Tab 2").grid_columnconfigure(0, weight=1)
 
-        # self.optionmenu_1 = customtkinter.CTkOptionMenu(self.tabview.tab("CTkTabview"), dynamic_resizing=False,
-        #                                                 values=["Value 1", "Value 2", "Value Long Long Long"])
-        # self.optionmenu_1.grid(row=0, column=0, padx=20, pady=(20, 10))
+        self.optionmenu_2 = customtkinter.CTkOptionMenu(self.tabview.tab("Set Time"), dynamic_resizing=False,
+                                                        values=["AM","PM"])
+        self.optionmenu_2.grid(row=1, column=0, padx=20, pady=(20, 10))
         # self.combobox_1 = customtkinter.CTkComboBox(self.tabview.tab("CTkTabview"),
-        #                                             values=["Value 1", "Value 2", "Value Long....."])
+        #                                             values=["AM", "PM"])
         # self.combobox_1.grid(row=1, column=0, padx=20, pady=(10, 10))
-        # self.string_input_button = customtkinter.CTkButton(self.tabview.tab("CTkTabview"), text="Open CTkInputDialog",
-        #                                                    command=self.open_input_dialog_event)
-        # self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
+        self.string_input_button = customtkinter.CTkButton(self.tabview.tab("Set Time"), text="Open Input Time",
+                                                           command=self.open_input_dialog_event)
+        self.string_input_button.grid(row=2, column=0, padx=20, pady=(10, 10))
+
+        self.string_input_button = customtkinter.CTkButton(self.tabview.tab("Set Time"), text="Check",
+                                                           command = lambda : displayTime())
+        self.string_input_button.grid(row=3, column=0, padx=20, pady=(10, 10))
         # self.label_tab_2 = customtkinter.CTkLabel(self.tabview.tab("Tab 2"), text="CTkLabel on Tab 2")
         # self.label_tab_2.grid(row=0, column=0, padx=20, pady=20)
 
         # create radiobutton frame
-        # self.radiobutton_frame = customtkinter.CTkFrame(self)
-        # self.radiobutton_frame.grid(row=0, column=3, padx=(20, 20), pady=(20, 0), sticky="nsew")
-        # self.radio_var = tkinter.IntVar(value=0)
-        # self.label_radio_group = customtkinter.CTkLabel(master=self.radiobutton_frame, text="CTkRadioButton Group:")
-        # self.label_radio_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
-        # self.radio_button_1 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=0)
+        self.radiobutton_frame = customtkinter.CTkFrame(self)
+        self.radiobutton_frame.grid(row=0, column=3, padx=(20, 20), pady=(20, 0), sticky="nsew")
+        self.radio_var = tkinter.IntVar(value=0)
+        self.label_radio_group = customtkinter.CTkLabel(master=self.radiobutton_frame, text="Mode")
+        self.label_radio_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
+        # self.radio_button_1 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=0,text="Normal auto post")
         # self.radio_button_1.grid(row=1, column=2, pady=10, padx=20, sticky="n")
-        # self.radio_button_2 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=1)
-        # self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
-        # self.radio_button_3 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=2)
-        # self.radio_button_3.grid(row=3, column=2, pady=10, padx=20, sticky="n")
+        self.radio_button_2 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=1, text="Timer post", command= lambda : self.checkButton())
+        self.radio_button_2.grid(row=1, column=2, pady=10, padx=20, sticky="n")
+
+        self.radio_button_3 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=2, text="Normal post", command= lambda : self.checkButton())
+        self.radio_button_3.grid(row=2, column=2, pady=10, padx=20, sticky="n")
 
         # create slider and progressbar frame
-        self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
-        self.slider_progressbar_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
-        self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
+        # self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
+        # self.slider_progressbar_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
+        # self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
+        # self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
 
         # self.seg_button_1 = customtkinter.CTkSegmentedButton(self.slider_progressbar_frame)
         # self.seg_button_1.grid(row=0, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
@@ -155,7 +175,8 @@ class App(customtkinter.CTk):
         # self.radio_button_3.configure(state="disabled")
         self.appearance_mode_optionemenu.set("Dark")
         self.scaling_optionemenu.set("100%")
-        # self.optionmenu_1.set("CTkOptionmenu")
+        # self.optionmenu_1.set("TIME")
+        self.optionmenu_2.set("AM/PM")
         # self.combobox_1.set("CTkComboBox")
         # self.slider_1.configure(command=self.progressbar_2.set)
         # self.slider_2.configure(command=self.progressbar_3.set)
@@ -170,12 +191,24 @@ class App(customtkinter.CTk):
         self.entry1 = customtkinter.CTkEntry(self, placeholder_text="Entry StartRow")
         self.entry1.grid(row=1, column=1, columnspan=1, padx=(20, 10), pady=(10, 10), sticky="ew")
         self.main_button_1 = customtkinter.CTkButton(master=self,command=lambda:display_text1(), fg_color="transparent", border_width=2,text_color=("gray10", "#DCE4EE"), text="Start Row")
-        self.main_button_1.grid(row=1, column=3, padx=(10, 10), pady=(10, 10), sticky="ew")
+        self.main_button_1.grid(row=1, column=2, padx=(5, 5), pady=(5, 5), sticky="ew")
         self.entry2 = customtkinter.CTkEntry(self, placeholder_text="Entry EndRow")
         self.entry2.grid(row=2, column=1, columnspan=1, padx=(20, 10), pady=(10, 10), sticky="ew")
         self.main_button_2 = customtkinter.CTkButton(master=self,command=lambda:display_text2(), fg_color="transparent", border_width=2,
                                                      text_color=("gray10", "#DCE4EE"), text="End Row")
-        self.main_button_2.grid(row=2, column=3, padx=(10, 10), pady=(10, 10), sticky="ew")
+        self.main_button_2.grid(row=2, column=2, padx=(5, 5), pady=(5, 5), sticky="ew")
+
+
+
+        def displayTime():
+            global hour , minute
+            #take mode
+            self.textbox.insert("0.100", str(self.radio_var.get()) +  "\n\n")
+            #take AM, PM
+            self.textbox.insert("0.100", str(self.optionmenu_2.get()) + "\n\n")
+            #take Time
+            self.textbox.insert("0.100", str(dialog1) + "\n\n")
+
         def display_text1():
             global getRowStart
             getRowStart = self.entry1.get()
@@ -186,9 +219,13 @@ class App(customtkinter.CTk):
             getRowEnd = self.entry2.get()
             self.textbox.insert("0.100","End : " + getRowEnd + "\n\n")
 
+
     def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
-        print("CTkInputDialog:", dialog.get_input())
+        global dialog1
+        dialog = customtkinter.CTkInputDialog(text="Type in time", title="CTkInputDialog")
+
+        dialog1 =dialog.get_input()
+
 
     def change_appearance_mode_event(self, new_appearance_mode: str):
         customtkinter.set_appearance_mode(new_appearance_mode)
