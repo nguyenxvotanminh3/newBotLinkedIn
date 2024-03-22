@@ -1,3 +1,5 @@
+import array
+
 import pandas as pd
 from datetime import time, datetime
 import time as time
@@ -15,7 +17,7 @@ def postOnLinkedIn(driver):
         driver.get("https://www.linkedin.com/home")
     #take all the Content avaiable from resources
         df = pd.read_csv('recourses/Content.csv')
-        time.sleep(5)
+        time.sleep(3)
     # the ui will chose which content row
         choose = df['Image'][value1]
         rawString=r"{}".format(choose)
@@ -23,13 +25,13 @@ def postOnLinkedIn(driver):
         text_button = driver.find_element(By.XPATH,
                                       "//button[contains(@class, 'artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry-toolbar__item')]")
         text_button.click()
-        time.sleep(5)
+        time.sleep(3)
         #chose pic
         keyboard.type(rawString)
         # hit enter
         keyboard.press(Key.enter)
         keyboard.release(Key.enter)
-        time.sleep(2)
+        time.sleep(1)
         #click to next to paste content
         next = driver.find_element(By.XPATH, "//button[contains(@class, 'share-box-footer__primary-btn artdeco-button artdeco-button--2 artdeco-button--primary ember-view')]")
         next.click()
@@ -66,15 +68,30 @@ def postOnLinkedIn(driver):
         convertedTag = stringTag.split(",")
 
         # -----Post with tag--------------------------------------------------------------------------------------------
-
+        count = 0
         for value in range(len(convertedTag)):
-            driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys('@' + convertedTag[value])
+            count = count+1
+            if (count == 4):
+                keyboard.press(Key.enter)
+                keyboard.release(Key.enter)
+                time.sleep(0.5)
+                keyboard.press(Key.space)
+                keyboard.release(Key.space)
+                count = 0
+
+            driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys('@'+convertedTag[value])
             time.sleep(3)
             keyboard.press(Key.down)
             time.sleep(0.5)
             keyboard.press(Key.enter)
             time.sleep(0.5)
             keyboard.press(Key.space)
+            time.sleep(0.5)
+
+
+
+
+
         # --------------------------------------------------------------------------------------------------------------
 
                         # --------------------------------------------------------------------------

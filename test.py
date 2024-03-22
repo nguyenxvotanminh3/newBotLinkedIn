@@ -1,13 +1,17 @@
-import time
-from datetime import datetime
+hold = ["minh","man","nguyen"]
+a="test"
+b="test"
+c="test"
+
+hold.clear()
+for i in range(0,1):
+    hold.insert(i,a)
+for i in range(1,2):
+    hold.insert(i,b)
+for i in range(2,3):
+    hold.insert(i,c)
 
 
-alarm = "22:18:00"
-current_time = "Ngon"
-while(alarm!=current_time):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    time.sleep(1)
-    print(current_time)
 
-print("alarm")
+for i in range(len(hold)):
+    print(hold[i])
