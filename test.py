@@ -1,17 +1,19 @@
-hold = ["minh","man","nguyen"]
-a="test"
-b="test"
-c="test"
+import csv
 
-hold.clear()
-for i in range(0,1):
-    hold.insert(i,a)
-for i in range(1,2):
-    hold.insert(i,b)
-for i in range(2,3):
-    hold.insert(i,c)
+def writeCsv(text,rowInLoop):
+    csv_file_path = 'recourses/url_linkedin.csv'
 
+# Read existing data
+    rows = []
+    with open(csv_file_path, 'r', newline='', encoding='UTF8') as f:
+        reader = csv.reader(f)
+        rows = list(reader)
+        print(rows)
 
+        # rows[rowInLoop][2] = text
+    # Modify data for the first row
+    # with open(csv_file_path, 'w', newline='', encoding='UTF8') as f:
+    #         writer = csv.writer(f)
+    #         writer.writerows(rows)
 
-for i in range(len(hold)):
-    print(hold[i])
+writeCsv("haha",6)
