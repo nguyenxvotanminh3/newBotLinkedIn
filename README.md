@@ -78,14 +78,23 @@ Download project về máy
 7. Kiểm tra trên cửa sổ xem đúng không, nếu không đúng thì cứ nhập lại rồi bấm kiểm tra tiếp
 
 ``````
+
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ad6283c1-1422-4479-8b16-c47194adf955)
 
+``````
+8. Chọn mode đăng bài
 
 ``````
-8. Bấm passvariable
+
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/78b875f2-39c1-4171-8fa4-c19c5a5d5375)
 
 ``````
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/67a69aad-e021-463c-aad3-51d29c453f1b)
+8. Bấm Auto post
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/a5ecab7b-c5e3-4f07-a34d-78bd4f842bb9)
+
+
 
 
 ``````
@@ -98,9 +107,7 @@ Download project về máy
 
 
 ``````
-Basic login : tự lead đến trang đăng nhập, bạn chỉ cần tự đăng nhập
-Auto login : chuyển bạn đến trang đăng nhập, tự điền mật khẩu, 1 vài lúc nó tự enter vào luôn, không thì bạn bấm enter vào trang chính.
- Xin cảm ơn bạn đã tin dùng!
+
 ``````
 # Phần 2 : Connect 
 
