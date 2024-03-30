@@ -10,50 +10,89 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def autoConnect(driver):
-
-    keyboard = Controller()
     csv_file_path = 'recourses/url_linkedin.csv'
     data = pd.read_csv('recourses/url_linkedin.csv')
     rows = []
     with open(csv_file_path, 'r', newline='', encoding='UTF8') as f:
         reader = csv.reader(f)
         rows = list(reader)
-    # Enter the URL for 2nd Connections
-    # value 0, 1, 2, 3, 4
-    for value in range(len(rows) - 1):
-        print("Value" + str(value))
-        value1 = value
-        try:
+        time.sleep(0.5)
+        for value in range(len(rows) - 1):
+            print("Value" + str(value))
+            value1 = value
             link = data['LinkedIn_Link'][value1]
-            # Thay 'LinkedIn_Link' bằng tên cột chứa URL LinkedIn
-            # Kiểm tra URL của người dùng trên LinkedIn
-            # Mở URL trên trình duyệt
             driver.get(link)
-            time.sleep(2)
+
+            time.sleep(6)
             print('Try to click connect')
-            followButon = driver.find_element(By.XPATH, "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/button")
-            followButon.click()
-            time.sleep(2)
-            print("click connect!")
-            time.sleep(2)
-            connectButonNew = driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div[3]/button[2]")
-            connectButonNew.click()
-            time.sleep(1)
-            print("click Send without comment!")
-            #first input
-            #last input
-            # if(value == len(rows) - 1):
-            #     value = value + 1
-            print('value: ' + str(value))
-            writeCvs("Done",value + 1)
-            print("write in csv: connected one!")
-        except NoSuchElementException:
-            # if (value == len(rows) - 1):
-            #     value = value + 1
-            print('value: ' + str(value))
-            print("Not connected one !" + data['LinkedIn_Link'][value])
-            writeCvs("Not Connected",value + 1)
-            print("write in csv!")
+            try:
+                followButon = driver.find_element(By.XPATH, "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/button")
+                button_text1 = followButon.get_attribute("aria-label")
+                if "Invite" in button_text1:
+                    try:
+                        followButon.click()
+                        print("click connect!")
+                        time.sleep(2)
+                        connectButonNew = driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div[3]/button[2]")
+                        connectButonNew.click()
+                        time.sleep(2)
+                        checkStatus = followButon.get_attribute("aria-label")
+                        if "Pending" in checkStatus:
+                            print("Pending!" + data['LinkedIn_Link'][value])
+                            writeCvs("Pending", value + 1)
+                            print("write in csv!")
+                        else:
+                            print("Not connected one !" + data['LinkedIn_Link'][value])
+                            writeCvs("Not Connected", value + 1)
+                            print("write in csv!")
+                    except NoSuchElementException:
+                        print("Not connected one !" + data['LinkedIn_Link'][value])
+                        writeCvs("Not Connected", value + 1)
+                        print("write in csv!")
+                elif "Follow" in button_text1:
+                    try:
+                        connectButonNew1 = driver.find_element(By.XPATH, "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/button")
+                        connectButonNew1.click()
+                        time.sleep(1)
+                        connectButonNew2 = driver.find_element(By.XPATH,"/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/div/div/ul/li[3]/div")
+                        connectButonNew2.click()
+
+                        connectButonNew3 = driver.find_element(By.XPATH,
+                                                               "/html/body/div[3]/div/div/div[3]/button[2]")
+                        connectButonNew3.click()
+                        print('value: ' + str(value))
+                        writeCvs("Pending", value + 1)
+                        print("Connected!")
+                    except NoSuchElementException:
+                        print("Not connected one !" + data['LinkedIn_Link'][value])
+                        writeCvs("Not Connected", value + 1)
+                        print("write in csv!")
+                elif "Pending" in button_text1:
+                        print("Pending!" + data['LinkedIn_Link'][value])
+                        writeCvs("Pending", value + 1)
+                        print("write in csv!")
+            except NoSuchElementException:
+                try:
+                    checkStatus = driver.find_element(By.XPATH,
+                                                      "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/button")
+                    checkStatus.click()
+                    time.sleep(1)
+                    checkStatus = driver.find_element(By.XPATH,
+                                                      "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/div/div/ul/li[7]/div")
+                    checkStatus2 = checkStatus.get_attribute("aria-label")
+                    if "Remove" in checkStatus2:
+                        print("Connected!" + data['LinkedIn_Link'][value])
+                        writeCvs("Pending", value + 1)
+                        print("write in csv!")
+                except NoSuchElementException:
+                    print("Not Connected" + data['LinkedIn_Link'][value])
+                    writeCvs("Not Connected", value + 1)
+                    print("write in csv!")
+
+
+
+
+
 
 
 def writeCvs(text,rowInLoop):

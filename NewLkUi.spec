@@ -5,7 +5,7 @@ a = Analysis(
     ['NewLkUi.py'],
     pathex=[],
     binaries=[],
-     datas=[('recourses\Account.cfg','recourses'),
+    datas=[('recourses\Account.cfg','recourses'),
     ('recourses\Content.csv','recourses')],
     hiddenimports=[],
     hookspath=[],
