@@ -94,8 +94,12 @@ Download project về máy
 ``````
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/b4a1800b-a7a0-4900-8460-86b2ec30aad4)
 
-![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/a5ecab7b-c5e3-4f07-a34d-78bd4f842bb9)
 
+``````
+9.1 Điền như trên hình , theo cú pháp giờ:phút:giây vd 01:00:00 ( 1 giờ sáng ) , 13:00:00 ( 1 giờ chiều) -> bấm ok
+
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/ad559541-676a-4b78-9b73-e0f7a5bddcac)
 
 
 
