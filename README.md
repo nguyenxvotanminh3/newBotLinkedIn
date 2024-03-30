@@ -89,9 +89,11 @@ Download project về máy
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/78b875f2-39c1-4171-8fa4-c19c5a5d5375)
 
 ``````
-8. Bấm Auto post
+9. Nếu dùng timer post , thì chọn thêm open input time 
 
 ``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/b4a1800b-a7a0-4900-8460-86b2ec30aad4)
+
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/a5ecab7b-c5e3-4f07-a34d-78bd4f842bb9)
 
 
@@ -99,7 +101,7 @@ Download project về máy
 
 ``````
 
-9. Bấm AutoPost
+10. Bấm AutoPost
 
 ``````
 ![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/389668fd-ca6c-401b-91ba-1d178b5df1cd)
