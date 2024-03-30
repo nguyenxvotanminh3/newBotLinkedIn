@@ -4,10 +4,11 @@
 Download project về máy
 ``````
 #Phần 1 post : 
-Chuẩn bị 
+
 
 ``````
-1.Một tấm ảnh đặt tên chữ tiếng anh, không bắt đầu bằng 't' , ví dụ : test ( lỗi ) , nên đặt theo pic1 , pic2, pic3
+
+1.Chuẩn bị một tấm ảnh đặt tên chữ tiếng anh, nên đặt theo pic1 , pic2, pic3
 ``````
 ``````
 2.Lưu ảnh vào máy, lấy đường dẫn chính xác đến ảnh. Ví dụ ảnh ở ổ D thư mục 'code' tên anh 'pic1' thì lấy dường đãn là 'D:\code\pic1.jpg'
