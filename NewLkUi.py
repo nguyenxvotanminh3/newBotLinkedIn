@@ -277,11 +277,13 @@ class App(customtkinter.CTk):
     def sidebar_button_event(self):
         print("sidebar_button click")
 
+
+#
 # service = Service(executable_path='./chromedriver.exe')
 # options = webdriver.ChromeOptions()
-# options.add_argument("user-data-dir=C:\\Users\\lop12\\AppData\\Local\\Google\\Chrome\\User Data\\Default")
+# options.add_argument("user-data-dir=C:\\Users\\lop12\\PycharmProjects\\TestBot\\Profile 1")
 # driver = webdriver.Chrome(service=service, options=options)
-
+#
 # driver.get("https://www.google.co.in")
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
