@@ -1,7 +1,9 @@
 # Bot_Pthon_LinkeIN
 ``````
+
 Download project về máy
 ``````
+#Phần 1 post : 
 Chuẩn bị 
 
 ``````
@@ -99,7 +101,41 @@ Basic login : tự lead đến trang đăng nhập, bạn chỉ cần tự đăn
 Auto login : chuyển bạn đến trang đăng nhập, tự điền mật khẩu, 1 vài lúc nó tự enter vào luôn, không thì bạn bấm enter vào trang chính.
  Xin cảm ơn bạn đã tin dùng!
 ``````
+# Phần 2 : Connect 
 
+``````
+1. Vào thư mục dist -> recourses -> mở file url_linkedin.csv
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/7701acc9-f766-4738-bdab-e217f9315884)
+
+
+``````
+2.Cột LinkedIn_Link chứa link của người muốn connect , cột status chứa status 
+``````
+
+``````
+3. Khi mới nhập link , mặc định để status là 1 chữ gì đó, ví dụ : null
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/f5529b67-9ccc-4982-869c-fa4471ff294d)
+``````
+4. Lưu lại và tắt excel, sau đó bật phần mềm lên
+``````
+``````
+5. Sau khi login, bấm auto connect và chờ
+``````
+![image](https://github.com/nguyenxvotanminh3/newBotLinkedIn/assets/91356207/bfc2e9ee-5a97-4ac6-90be-7bc669ca047b)
+
+``````
+5. Sau khi bot chạy xong, bật file url_linkedin.csv lên để kiểm tra
+``````
+
+``````
+Sẽ có 4 trường hợp xảy ra trong Status :
+1.Pending : Người connect đã được gửi connect và đang đợi được connect
+2.Connected : Người connecti đã được gửi và đã connect ( Thường xuất hiện khi chạy để kiểm tra connect, lần đầu sẽ chỉ hiện pending ) 
+3.Not connected : Lỗi connect hoặc vấn đề gì đó chưa được fix
+4.Null : Link lỗi hoặc một lỗi khác
+``````
 # Thoát
 Nhấn vào nút "X" để tắt tất cả
  
