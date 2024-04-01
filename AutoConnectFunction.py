@@ -22,7 +22,6 @@ def autoConnect(driver):
             value1 = value
             link = data['LinkedIn_Link'][value1]
             driver.get(link)
-
             time.sleep(6)
             print('Try to click connect')
             try:
@@ -30,25 +29,24 @@ def autoConnect(driver):
                 button_text1 = followButon.get_attribute("aria-label")
                 if "Invite" in button_text1:
                     try:
+                        checkStatus = followButon.get_attribute("aria-label")
+                        print("This person is not connected , try to click connect..........")
                         followButon.click()
                         print("click connect!")
                         time.sleep(2)
                         connectButonNew = driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div[3]/button[2]")
                         connectButonNew.click()
                         time.sleep(2)
-                        checkStatus = followButon.get_attribute("aria-label")
+
                         if "Pending" in checkStatus:
-                            print("Pending!" + data['LinkedIn_Link'][value])
-                            writeCvs("Pending", value + 1)
-                            print("write in csv!")
+                            print("Message sent !" + data['LinkedIn_Link'][value])
+                            writeCvs("Message sent", value + 1)
                         else:
                             print("Not connected one !" + data['LinkedIn_Link'][value])
                             writeCvs("Not Connected", value + 1)
-                            print("write in csv!")
                     except NoSuchElementException:
                         print("Not connected one !" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
-                        print("write in csv!")
                 elif "Follow" in button_text1:
                     try:
                         connectButonNew1 = driver.find_element(By.XPATH, "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/button")
@@ -61,12 +59,10 @@ def autoConnect(driver):
                                                                "/html/body/div[3]/div/div/div[3]/button[2]")
                         connectButonNew3.click()
                         print('value: ' + str(value))
-                        writeCvs("Pending", value + 1)
-                        print("Connected!")
+                        writeCvs("Message sent", value + 1)
                     except NoSuchElementException:
                         print("Not connected one !" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
-                        print("write in csv!")
                 elif "Pending" in button_text1:
                         print("Pending!" + data['LinkedIn_Link'][value])
                         writeCvs("Pending", value + 1)
@@ -81,19 +77,13 @@ def autoConnect(driver):
                                                       "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/div/div/ul/li[7]/div")
                     checkStatus2 = checkStatus.get_attribute("aria-label")
                     if "Remove" in checkStatus2:
-                        print("Connected!" + data['LinkedIn_Link'][value])
-                        writeCvs("Pending", value + 1)
+                        print("Connected one!" + data['LinkedIn_Link'][value])
+                        writeCvs("Connected", value + 1)
                         print("write in csv!")
                 except NoSuchElementException:
-                    print("Not Connected" + data['LinkedIn_Link'][value])
-                    writeCvs("Not Connected", value + 1)
-                    print("write in csv!")
-
-
-
-
-
-
+                        print("Not Connected" + data['LinkedIn_Link'][value])
+                        writeCvs("Not Connected", value + 1)
+                        print("write in csv!")
 
 def writeCvs(text,rowInLoop):
     csv_file_path = 'recourses/url_linkedin.csv'

@@ -10,8 +10,6 @@ from pynput.keyboard import Key, Controller
 
 def postOnLinkedIn(driver):
     keyboard = Controller()
-
-    #maybe O(n*n) lmao
     #loop from start to end
     for value1 in range(rowGetStart, rowGetEnd+1):
         driver.get("https://www.linkedin.com/home")
@@ -56,9 +54,6 @@ def postOnLinkedIn(driver):
         driver.find_element(By.XPATH, "//div[contains(@class, 'ql-editor')]").send_keys(df['Content'][value1])
         time.sleep(1)
 
-                        # --------------------------------------------------------------------
-
-
         # ---Tag------------------------------------------------------------------------------------------
 
         keyboard.press(Key.enter)
@@ -89,14 +84,6 @@ def postOnLinkedIn(driver):
             time.sleep(0.5)
 
 
-
-
-
-        # --------------------------------------------------------------------------------------------------------------
-
-                        # --------------------------------------------------------------------------
-
-
         # --BotHastag-------------------------------------------------------------------------------------------------
         keyboard.press(Key.enter)
         # converte object of Hastag to string
@@ -118,12 +105,6 @@ def postOnLinkedIn(driver):
         time.sleep(15)
 
 
-
-# def reciveFromUi(row):
-#     global rowGet
-#     rowGet = row
-#     return rowGet
-#     time.sleep(1)
 def reciveFromUi(rowStart, rowEnd):
     global rowGetStart
     global rowGetEnd
