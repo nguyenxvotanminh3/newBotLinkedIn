@@ -8,7 +8,7 @@ import customtkinter
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService, Service
 from webdriver_manager.chrome import ChromeDriverManager
-from LoginFunction import Login_Linkedin,Login_Linkedin_1
+from LoginFunction import Login_Linkedin
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
 from PostFuction import postOnLinkedIn,reciveFromUi
@@ -43,16 +43,16 @@ class App(customtkinter.CTk):
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
         self.sidebar_button_1 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: Login_Linkedin(driver),text="Auto Login")
         self.sidebar_button_1.grid(row=1, column=0, padx=20, pady=10)
-        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: changePost(),text="Auto Post")
+        self.sidebar_button_2 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: changeModeButton2(),text="Auto Post")
         self.sidebar_button_2.grid(row=2, column=0, padx=20, pady=10)
 
-        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: autoConnect(driver), text="Auto Connect" )
+        self.sidebar_button_3 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: changeModeButton2(), text="Auto Connect" )
         self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
 
-        self.sidebar_button_4 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: autoJoinGroup(driver), text="Auto Join Group")
+        self.sidebar_button_4 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: changeModeButton2(), text="Auto Join Group")
         self.sidebar_button_4.grid(row=4, column=0, padx=20, pady=10)
 
-        self.sidebar_button_5 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: autoSendMessage(driver), text="Auto send Message")
+        self.sidebar_button_5 = customtkinter.CTkButton(self.sidebar_frame, command=lambda: changeModeButton2(), text="Auto send Message")
         self.sidebar_button_5.grid(row=5, column=0, padx=20, pady=10)   
 
 
@@ -216,18 +216,18 @@ class App(customtkinter.CTk):
 
 
         def annouce():
-
-            if(self.radio_var.get() == 1 ):
-                self.textbox.insert("0.0", "Timer mode is set ! " + "\n\n")
-            if(self.radio_var.get() == 2 ):
-                self.textbox.insert("0.0", "Auto post mode is set! " + "\n\n")
-            if (self.radio_var.get() == 3):
+            value = self.radio_var.get()
+            match value:
+                case 1:
+                    self.textbox.insert("0.0", "Timer mode is set ! " + "\n\n")
+                case 2:
+                    self.textbox.insert("0.0", "Auto post mode is set! " + "\n\n")
+                case 3:
                     self.textbox.insert("0.0", "Connect mode is set! " + "\n\n")
-            if (self.radio_var.get() == 4):
-                self.textbox.insert("0.0", "Message mode is set! " + "\n\n")
-            if (self.radio_var.get() == 5):
-                self.textbox.insert("0.0", "Join Group mode is set! " + "\n\n")
-
+                case 4:
+                    self.textbox.insert("0.0", "Message mode is set! " + "\n\n")
+                case 5:
+                    self.textbox.insert("0.0", "Join Group mode is set! " + "\n\n")
 
 
         def displayTime():
@@ -250,16 +250,20 @@ class App(customtkinter.CTk):
             getRowEnd = self.entry2.get()
             self.textbox.insert("0.0","End : " + getRowEnd + "\n\n")
 
-        def changePost():
-            if(self.radio_var.get() == 1 or self.radio_var.get() == 2 ):
-                if (self.radio_var.get() == 1):
+        def changeModeButton2():
+            value = self.radio_var.get()
+            match value:
+                case 1:
                     reciveFromUi(int(getRowStart), int(getRowEnd))
-                autoPostFuction(driver, alarmUi=dialog1)
-                if (self.radio_var.get() == 2):
+                    autoPostFuction(driver, alarmUi=dialog1)
+                case 2:
                     reciveFromUi(int(getRowStart), int(getRowEnd))
-                postOnLinkedIn(driver)
-            else:
-                self.textbox.insert("0.0", "Please Chose mode " + getRowEnd + "\n\n")
+                    postOnLinkedIn(driver)
+                case 3:
+                    autoConnect(driver)
+                case default:
+                    self.textbox.insert("0.0", "Please Chose mode " + getRowEnd + "\n\n")
+
     def open_input_dialog_event(self):
         global dialog1
         dialog = customtkinter.CTkInputDialog(text="Type in time", title="CTkInputDialog")
@@ -278,7 +282,7 @@ class App(customtkinter.CTk):
         print("sidebar_button click")
 
 
-#
+
 # service = Service(executable_path='./chromedriver.exe')
 # options = webdriver.ChromeOptions()
 # options.add_argument("user-data-dir=C:\\Users\\lop12\\PycharmProjects\\TestBot\\Profile 1")
@@ -287,6 +291,7 @@ class App(customtkinter.CTk):
 # driver.get("https://www.google.co.in")
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+driver.get("https://www.google.co.in")
 
 
 
