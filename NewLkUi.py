@@ -287,8 +287,8 @@ class App(customtkinter.CTk):
 # options = webdriver.ChromeOptions()
 # options.add_argument("user-data-dir=C:\\Users\\lop12\\PycharmProjects\\TestBot\\Profile 1")
 # driver = webdriver.Chrome(service=service, options=options)
-#
 # driver.get("https://www.google.co.in")
+
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 driver.get("https://www.google.co.in")
