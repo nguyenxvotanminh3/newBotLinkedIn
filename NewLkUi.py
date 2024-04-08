@@ -290,6 +290,7 @@ class App(customtkinter.CTk):
 #
 # driver.get("https://www.google.co.in")
 
+
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 driver.get("https://www.google.co.in")
 
