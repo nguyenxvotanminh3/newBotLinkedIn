@@ -39,14 +39,17 @@ def autoConnect(driver):
                         time.sleep(2)
 
                         if "Pending" in checkStatus:
-                            print("Message sent !" + data['LinkedIn_Link'][value])
-                            writeCvs("Message sent", value + 1)
+                            print("Invite sent !" + data['LinkedIn_Link'][value])
+                            writeCvs("Invite sent", value + 1)
+                            writeCvsMessage("Message not sent", value + 1)
                         else:
                             print("Not connected one !" + data['LinkedIn_Link'][value])
                             writeCvs("Not Connected", value + 1)
+                            writeCvsMessage("Message not sent", value + 1)
                     except NoSuchElementException:
                         print("Not connected one !" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
+                        writeCvsMessage("Message not sent", value + 1)
                 elif "Follow" in button_text1:
                     try:
                         connectButonNew1 = driver.find_element(By.XPATH, "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[2]/button")
@@ -57,16 +60,27 @@ def autoConnect(driver):
 
                         connectButonNew3 = driver.find_element(By.XPATH,
                                                                "/html/body/div[3]/div/div/div[3]/button[2]")
+
                         connectButonNew3.click()
-                        print('value: ' + str(value))
-                        writeCvs("Message sent", value + 1)
+                        time.sleep(2)
+                        followButon1 = driver.find_element(By.XPATH,
+                                                          "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/button")
+                        test = followButon1.get_attribute("aria-label")
+                        if("Pending" in test):
+
+                            print('value: ' + str(value))
+                            writeCvs("Invite sent", value + 1)
+                        else:
+                            writeCvs("Not connected", value + 1)
                     except NoSuchElementException:
                         print("Not connected one !" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
+                        writeCvsMessage("Message not sent", value + 1)
                 elif "Pending" in button_text1:
                         print("Pending!" + data['LinkedIn_Link'][value])
                         writeCvs("Pending", value + 1)
                         print("write in csv!")
+                        writeCvsMessage("Message not sent", value + 1)
             except NoSuchElementException:
                 try:
                     checkStatus = driver.find_element(By.XPATH,
@@ -80,10 +94,22 @@ def autoConnect(driver):
                         print("Connected one!" + data['LinkedIn_Link'][value])
                         writeCvs("Connected", value + 1)
                         print("write in csv!")
+                        try:
+                            sendMessageButton = driver.find_element(By.XPATH,"/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section[1]/div[2]/div[3]/div/div[1]/button")
+                            print("Message buton found")
+                            sendMessageButton.click()
+                            time.sleep(1)
+                            print("value is : " + str(value) )
+                            driver.find_element(By.XPATH,"/html/body/div[5]/div[4]/aside[1]/div[2]/div[1]/div[2]/div/form/div[2]/div/div[1]/div[1]").send_keys(data['Message'][value])
+                            writeCvsMessage("Message sent", value + 1)
+                        except NoSuchElementException:
+                            print("Cant Send Message")
+                            writeCvsMessage("Message not sent", value + 1)
                 except NoSuchElementException:
                         print("Not Connected" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
                         print("write in csv!")
+                        writeCvsMessage("Message not sent", value + 1)
 
 def writeCvs(text,rowInLoop):
     csv_file_path = 'recourses/url_linkedin.csv'
@@ -93,6 +119,18 @@ def writeCvs(text,rowInLoop):
         reader = csv.reader(f)
         rows = list(reader)
         rows[rowInLoop][1] = text
+    # Modify data for the first row
+    with open(csv_file_path, 'w', newline='', encoding='UTF8') as f:
+        writer = csv.writer(f)
+        writer.writerows(rows)
+def writeCvsMessage(text,rowInLoop):
+    csv_file_path = 'recourses/url_linkedin.csv'
+    # Read existing data
+    rows = []
+    with open(csv_file_path, 'r', newline='', encoding='UTF8') as f:
+        reader = csv.reader(f)
+        rows = list(reader)
+        rows[rowInLoop][3] = text
     # Modify data for the first row
     with open(csv_file_path, 'w', newline='', encoding='UTF8') as f:
         writer = csv.writer(f)
