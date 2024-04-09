@@ -101,10 +101,32 @@ def autoConnect(driver):
                             time.sleep(1)
                             print("value is : " + str(value) )
                             driver.find_element(By.XPATH,"/html/body/div[5]/div[4]/aside[1]/div[2]/div[1]/div[2]/div/form/div[2]/div/div[1]/div[1]").send_keys(data['Message'][value])
+
+                            time.sleep(1)
+                            driver.find_element(By.XPATH,
+                                                "/html/body/div[5]/div[4]/aside[1]/div[2]/div[1]/div[2]/div/form/footer/div[2]/div[1]/button").click()
+                            time.sleep(4)
+                            print("click")
                             writeCvsMessage("Message sent", value + 1)
                         except NoSuchElementException:
-                            print("Cant Send Message")
-                            writeCvsMessage("Message not sent", value + 1)
+                            try:
+                                # button_text2 = driver.find_element(By.XPATH,"/html/body/div[5]/div[4]/aside[1]/div[3]/div[1]/div[2]/div/form/div[3]/div/div[1]/div[1]/p")
+                                # time.sleep(2)
+                                driver.find_element(By.XPATH, "//div[contains(@class, 'msg-form__contenteditable')]").send_keys(data['Message'][value])
+                                time.sleep(2)
+                                # button_text2.send_keys(data['Message'][value])
+                                driver.find_element(By.XPATH,
+                                                    "/html/body/div[5]/div[4]/aside[1]/div[2]/div[1]/div[2]/div/form/footer/div[2]/div[1]/button").click()
+                                time.sleep(4)
+                                print("click")
+                                driver.find_element(By.XPATH,
+                                                    "/html/body/div[5]/div[4]/aside[1]/div[2]/div[1]/header/div[4]/button[3]").click()
+                                time.sleep(0.5)
+                                print("click")
+                                writeCvsMessage("Message sent", value + 1)
+                            except NoSuchElementException:
+                                print("Cant Send Message")
+                                writeCvsMessage("Message not sent", value + 1)
                 except NoSuchElementException:
                         print("Not Connected" + data['LinkedIn_Link'][value])
                         writeCvs("Not Connected", value + 1)
