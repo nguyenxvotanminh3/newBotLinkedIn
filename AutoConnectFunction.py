@@ -132,7 +132,12 @@ def autoConnect(driver):
                         writeCvs("Not Connected", value + 1)
                         print("write in csv!")
                         writeCvsMessage("Message not sent", value + 1)
+#Công ty méo có phân tích dữ liệu hay phát triển mô hình gì đâu, toàn kiếm thông tin của ceo các kiểu để ông kia xin việc  thôi, :))) làm tốn thời gian lắm đừng có cố gắng làm gì
+#Nguyên 1 cái cty k có trụ sở giả bộ tuyển mấy đứa thực tập làm không công cho ông đứng đầu vì ổng thất nghiệp đang tìm việc :))
 
+# link review : https://reviewscongty.net/companies/qt-data-inc
+# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
+# nói chung là tốn thời gian lắm :)))))))))))) cay
 def writeCvs(text,rowInLoop):
     csv_file_path = 'recourses/url_linkedin.csv'
     # Read existing data
