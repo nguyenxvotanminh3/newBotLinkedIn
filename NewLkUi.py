@@ -16,7 +16,8 @@ from TimerPostFunction import autoPostFuction
 from AutoConnectFunction import autoConnect
 from selenium.webdriver.chrome.options import Options
 
-
+#Công ty méo có phân tích dữ liệu hay phát triển mô hình gì đâu, toàn kiếm thông tin của ceo các kiểu để ông kia xin việc  thôi, :))) làm tốn thời gian lắm đừng có cố gắng làm gì
+# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
 
 class App(customtkinter.CTk):
 
