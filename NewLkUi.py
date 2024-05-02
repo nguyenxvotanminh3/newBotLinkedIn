@@ -16,8 +16,7 @@ from TimerPostFunction import autoPostFuction
 from AutoConnectFunction import autoConnect
 from selenium.webdriver.chrome.options import Options
 
-#Công ty méo có phân tích dữ liệu hay phát triển mô hình gì đâu, toàn kiếm thông tin của ceo các kiểu để ông kia xin việc  thôi, :))) làm tốn thời gian lắm đừng có cố gắng làm gì
-# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
+
 
 class App(customtkinter.CTk):
 
@@ -144,52 +143,7 @@ class App(customtkinter.CTk):
         self.radio_button_6 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var,
                                                            value=5, text="Join Group", command=lambda: annouce())
         self.radio_button_6.grid(row=5, column=2, pady=10, padx=20, sticky="n")
-        # create slider and progressbar frame
-        # self.slider_progressbar_frame = customtkinter.CTkFrame(self, fg_color="transparent")
-        # self.slider_progressbar_frame.grid(row=1, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.slider_progressbar_frame.grid_columnconfigure(0, weight=1)
-        # self.slider_progressbar_frame.grid_rowconfigure(4, weight=1)
-
-        # self.seg_button_1 = customtkinter.CTkSegmentedButton(self.slider_progressbar_frame)
-        # self.seg_button_1.grid(row=0, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
-        # self.progressbar_1 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
-        # self.progressbar_1.grid(row=1, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
-        # self.progressbar_2 = customtkinter.CTkProgressBar(self.slider_progressbar_frame)
-        # self.progressbar_2.grid(row=2, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
-        # self.slider_1 = customtkinter.CTkSlider(self.slider_progressbar_frame, from_=0, to=1, number_of_steps=4)
-        # self.slider_1.grid(row=3, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
-        # self.slider_2 = customtkinter.CTkSlider(self.slider_progressbar_frame, orientation="vertical")
-        # self.slider_2.grid(row=0, column=1, rowspan=5, padx=(10, 10), pady=(10, 10), sticky="ns")
-        # self.progressbar_3 = customtkinter.CTkProgressBar(self.slider_progressbar_frame, orientation="vertical")
-        # self.progressbar_3.grid(row=0, column=2, rowspan=5, padx=(10, 20), pady=(10, 10), sticky="ns")
-
-        # # # create scrollable frame
-        # self.scrollable_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
-        # self.scrollable_frame.grid(row=1, column=2, padx=(20, 0), pady=(20, 0), sticky="nsew")
-        # self.scrollable_frame.grid_columnconfigure(0, weight=1)
-        # self.scrollable_frame_switches = []
-        # for i in range(100):
-        #     switch = customtkinter.CTkSwitch(master=self.scrollable_frame, text=f"CTkSwitch {i}")
-        #     switch.grid(row=i, column=0, padx=10, pady=(0, 20))
-        #     self.scrollable_frame_switches.append(switch)
-
-        # # create checkbox and switch frame
-        # self.checkbox_slider_frame = customtkinter.CTkFrame(self)
-        # self.checkbox_slider_frame.grid(row=1, column=3, padx=(20, 20), pady=(20, 0), sticky="nsew")
-        # self.checkbox_1 = customtkinter.CTkCheckBox(master=self.checkbox_slider_frame)
-        # self.checkbox_1.grid(row=1, column=0, pady=(20, 0), padx=20, sticky="n")
-        # self.checkbox_2 = customtkinter.CTkCheckBox(master=self.checkbox_slider_frame)
-        # self.checkbox_2.grid(row=2, column=0, pady=(20, 0), padx=20, sticky="n")
-        # self.checkbox_3 = customtkinter.CTkCheckBox(master=self.checkbox_slider_frame)
-        # self.checkbox_3.grid(row=3, column=0, pady=20, padx=20, sticky="n")
-
-        # set default values
-        # self.sidebar_button_3.configure(state="disabled", text="Disabled CTkButton")
-        # self.checkbox_3.configure(state="disabled")
-        # self.checkbox_1.select()
-        # self.scrollable_frame_switches[0].select()
-        # self.scrollable_frame_switches[4].select()
-        # self.radio_button_3.configure(state="disabled")
+    
         self.appearance_mode_optionemenu.set("Dark")
         self.scaling_optionemenu.set("100%")
         # self.optionmenu_1.set("TIME")
@@ -201,10 +155,7 @@ class App(customtkinter.CTk):
         # self.progressbar_1.start(
         time.sleep(5)
 
-        # self.seg_button_1.configure(values=["CTkSegmentedButton", "Value 2", "Value 3"])
-        # self.seg_button_1.set("Value 2")
-        # self.seg_button_1 = customtkinter.CTkSegmentedButton(self.slider_progressbar_frame)
-        # self.seg_button_1.grid(row=0, column=0, padx=(20, 10), pady=(10, 10), sticky="ew")
+    
         self.entry1 = customtkinter.CTkEntry(self, placeholder_text="Entry StartRow")
         self.entry1.grid(row=1, column=1, columnspan=1, padx=(20, 10), pady=(10, 10), sticky="ew")
         self.main_button_1 = customtkinter.CTkButton(master=self,command=lambda:display_text1(), fg_color="transparent", border_width=2,text_color=("gray10", "#DCE4EE"), text="Start Row")
@@ -282,13 +233,10 @@ class App(customtkinter.CTk):
     def sidebar_button_event(self):
         print("sidebar_button click")
 
+#Công ty méo có phân tích dữ liệu hay phát triển mô hình gì đâu, toàn kiếm thông tin của ceo các kiểu để ông kia xin việc  thôi, :))) làm tốn thời gian lắm đừng có cố gắng làm gì
+#Nguyên 1 cái cty k có trụ sở giả bộ tuyển mấy đứa thực tập làm không công cho ông đứng đầu vì ổng thất nghiệp đang tìm việc :))
+# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
 
-
-# service = Service(executable_path='./chromedriver.exe')
-# options = webdriver.ChromeOptions()
-# options.add_argument("user-data-dir=C:\\Users\\lop12\\PycharmProjects\\TestBot\\Profile 1")
-# driver = webdriver.Chrome(service=service, options=options)
-# driver.get("https://www.google.co.in")
 
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
