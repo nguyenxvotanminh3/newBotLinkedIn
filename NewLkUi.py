@@ -235,8 +235,10 @@ class App(customtkinter.CTk):
 
 #Công ty méo có phân tích dữ liệu hay phát triển mô hình gì đâu, toàn kiếm thông tin của ceo các kiểu để ông kia xin việc  thôi, :))) làm tốn thời gian lắm đừng có cố gắng làm gì
 #Nguyên 1 cái cty k có trụ sở giả bộ tuyển mấy đứa thực tập làm không công cho ông đứng đầu vì ổng thất nghiệp đang tìm việc :))
-# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
 
+# link review : https://reviewscongty.net/companies/qt-data-inc
+# Hi vọng bạn đọc và đưa ra được quyết định đúng đắn 
+# nói chung là tốn thời gian lắm :)))))))))))) cay
 
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
